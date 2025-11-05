@@ -511,7 +511,7 @@ body.menu-is-open .menu-panel {
     margin-top: 40px;
     padding: 0 80px;
     box-sizing: border-box;
-    z-index: 3;
+    z-index: 4000;
     position: relative;
 }
 
@@ -943,78 +943,7 @@ body.menu-is-open .menu-panel {
     background-attachment: fixed; /* Для красивого эффекта параллакса */
 }
 
-/* Слой затемнения для лучшей читаемости текста */
-/* --- НАЧАЛО БЛОКА: ПРАВИЛЬНОЕ ЗАТЕМНЕНИЕ И РАЗМЫТИЕ --- */
 
-/* 
- * ШАГ 1: ВОЗВРАЩАЕМ ПОЛНОЭКРАННОЕ ЗАТЕМНЕНИЕ
- * Это правило отвечает за темный слой на ВСЮ высоту секции.
- * Мы используем псевдо-элемент ::before для этого.
- */
-.projects-section::before,
-.advantages-section::before,
-.contact-form-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* <-- На всю высоту */
-    background-color: rgba(0, 0, 0, 0.6); /* <-- Интенсивное затемнение */
-    z-index: 1; /* <-- Слой прямо над фоном */
-    
-    /* Убираем отсюда все, что связано с размытием */
-    backdrop-filter: none;
-    mask-image: none;
-    -webkit-mask-image: none;
-}
-
-/* 
- * ШАГ 2: СОЗДАЕМ РАЗМЫТИЕ НА СТЫКАХ
- * Теперь мы используем псевдо-элемент ::after, который будет лежать 
- * ПОВЕРХ затемнения, но ПОД контентом.
- */
-.hero::after,
-.projects-section::after,
-.advantages-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    
-    /* Применяем размытие ко всему, что под ним (к фону и к слою затемнения) */
-    backdrop-filter: blur(8px); 
-
-    /* Маска для плавного перехода */
-    mask-image: linear-gradient(to top, black 50%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
-    
-    z-index: 2; /* <-- Слой НАД затемнением */
-}
-
-/* 
- * Мы не можем использовать ::after и ::before для одной цели, 
- * поэтому для верхнего размытия нам нужен еще один элемент.
- * Самый простой способ - добавить его в HTML.
- * НО чтобы не трогать HTML, мы можем "пожертвовать" верхним размытием
- * у секции с формой, так как она последняя.
- *
- * Поэтому пока оставляем только нижний блюр, который дает 90% эффекта.
- */
-
-/* 
- * ШАГ 3: ПОДНИМАЕМ КОНТЕНТ НА САМЫЙ ВЕРХ
- * Контент должен быть над всеми эффектами.
- */
-.hero-content,
-.project-slider-area,
-.advantages-section .container,
-.form-container {
-    position: relative;
-    z-index: 3; /* <-- Самый высокий z-index */
-}
 
 /* Контейнер с контентом должен быть поверх затемнения */
 .advantages-section .container {
@@ -1081,4 +1010,42 @@ body.menu-is-open .menu-panel {
     .advantages-section .section-title {
         margin-bottom: 50px;
     }
+}
+
+
+/* --- ПРОСТОЕ И НАДЕЖНОЕ ЗАТЕМНЕНИЕ ДЛЯ ВСЕХ СЕКЦИЙ --- */
+
+.hero::before,
+.projects-section::before,
+.advantages-section::before,
+.contact-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Затемнение для первой секции чуть слабее */
+    background: rgba(0, 0, 0, 0.35); 
+    
+    z-index: 1;
+}
+
+/* Более интенсивное затемнение для остальных секций */
+.projects-section::before,
+.advantages-section::before,
+.contact-form-section::before {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+
+/* --- ПОДНИМАЕМ ВЕСЬ КОНТЕНТ НАД ЗАТЕМНЕНИЕМ --- */
+
+.hero-content,
+.project-slider-area,
+.advantages-section .container,
+.form-container {
+    position: relative;
+    z-index: 2; /* <-- Достаточно z-index: 2, так как под ним только один слой */
 }
