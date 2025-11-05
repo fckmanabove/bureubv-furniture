@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заголовок Поста-Шаблона - Бюро БВ</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/single-post.css"> 
+</head>
+<body class="has-page-background">
+<div class="page-background">
+    <div class="page-overlay"></div>
+</div>
+
+       <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo"> <!-- Убедитесь, что путь к index.html правильный для каждой страницы -->
+                <picture>
+                    <source media="(max-width: 768px)" srcset="../img/logo_portable.svg"> <!-- и здесь -->
+                    <img src="../img/logo.svg" alt="Логотип"> <!-- и здесь -->
+                </picture>
+            </a>
+            <div class="burger-menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </div>
+        </div>
+    
+        <div class="social-links">
+            <a href="https://wa.me/79165794892?text=Здравствуйте" target="_blank" aria-label="WhatsApp">
+                <img src="../img/wa.png" alt="WhatsApp"> <!-- и здесь -->
+            </a>
+            <a href="https://t.me/alexeybasov" target="_blank" aria-label="Telegram">
+                <img src="../img/tg.png" alt="Telegram"> <!-- и здесь -->
+            </a>
+            <!-- ВОТ НОВАЯ КНОПКА -->
+            <a href="#" id="email-copy-btn" aria-label="Скопировать email">
+                <img src="../img/email.svg" alt="Email"> <!-- и здесь -->
+            </a>
+        </div>
+    </header>
+    <div class="menu-overlay">
+        <div class="menu-panel">
+            <nav class="main-menu">
+                <ul class="menu-column">
+                    <li class="menu-title">ПРАКТИКУМ</li>
+                    <li><a href="services.html">Консалтинг</a></li>
+                    <li><a href="likbez.html">Ликбез</a></li>
+                </ul>
+                <ul class="menu-column">
+                    <li class="menu-title">ПРОЕКТЫ</li>
+                    <li class="has-submenu">
+                        <a href="#">Интерьеры <span class="arrow-indicator"></span></a>
+                        <ul class="submenu">
+                            <li><a href="project-flavi.html">Салон красоты Флави</a></li>
+                            <li><a href="project-lsr.html">Музей Коллекция ЛСР</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="corp-furniture.html">Корпусная мебель</a></li>
+                    <li><a href="metal.html">Металл</a></li>
+                    <li><a href="glass.html">Стекло</a></li>
+                    <li><a href="stone.html">Камень</a></li>
+                    <li><a href="joinery.html">Столярные изделия</a></li>
+                </ul>
+                <ul class="menu-column">
+                    <li class="menu-title">О НАС</li>
+                    <li><a href="about-us.html">Кто мы такие</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-contact-email">
+                <a href="tel:+79165794892">+7 (916) 579-48-92</a>
+        <a hrf="a.basov@bureaubv.ru">a.basov@bureaubv.ru</a>
+    </div>
+</div>
+        </div>
+
+    <main>
+        <div class="single-post-wrapper">
+            <article class="single-post">
+                <header class="post-header-full">
+                    <p class="post-meta">[КАТЕГОРИЯ] · [ДАТА ПУБЛИКАЦИИ]</p>
+                    <h1 class="post-title-full">[ЗАГОЛОВОК ВАШЕГО ПОСТА]</h1>
+                </header>
+
+                <div class="featured-media">
+                    <img src="../img/random1.png" alt="[Краткое описание изображения]">
+                </div>
+
+                <div class="post-body">
+                    <p>[Здесь будет ваш вступительный абзац. Кратко опишите, о чём пойдёт речь в статье, и заинтересуйте читателя.]</p>
+                    
+                    <h3>[Подзаголовок 1]</h3>
+                    <p>[Здесь будет ваш текст. Опишите ключевые моменты, используя параграфы, списки и другие элементы для лучшей читаемости.]</p>
+                    <ul>
+                        <li>[Пункт списка 1]</li>
+                        <li>[Пункт списка 2]</li>
+                    </ul>
+
+                    <h3>[Подзаголовок 2]</h3>
+                    <p>[Продолжение вашей статьи. Вы можете добавить столько подзаголовков и абзацев, сколько необходимо для раскрытия темы.]</p>
+
+                    <h3>[Ключевой вывод или заключение]</h3>
+                    <p>[Здесь можно подвести итоги и сделать краткий, но ёмкий вывод по теме статьи.]</p>
+                </div>
+            </article>
+
+            <div class="back-link-wrapper">
+                <a href="likbez.html" class="back-link">&larr; Назад ко всем статьям</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer-info"></footer>
+    <div class="custom-scrollbar-track"><div class="custom-scrollbar-thumb"></div></div>
+
+    <script src="../js/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="../js/project-flavi.js"></script> 
+    
+    <div id="copy-notification">
+        <p>Готово! Почта скопирована в буфер обмена.</p>
+        <p>Так же вы можете прочитать имя почты, нажав на меню.</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+/* --- Стили для страницы отдельного поста --- */
+
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+
+/* Общая обёртка для статьи */
+.single-post-wrapper {
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+/* Заголовок статьи */
+.post-header-full {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+.post-header-full .post-meta {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 10px;
+}
+.post-header-full .post-title-full {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Главное изображение поста */
+/* Главное изображение поста */
+.featured-media {
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    
+    /* ИСПРАВЛЕНИЕ: Задаём жесткое соотношение сторон */
+    aspect-ratio: 12 / 6; 
+}
+
+.featured-media img {
+    width: 100%;
+    /* ИСПРАВЛЕНИЕ: Растягиваем картинку на 100% высоты контейнера и обрезаем лишнее */
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Тело статьи */
+.post-body {
+    max-width: 800px; /* Оптимальная ширина для чтения */
+    margin: 0 auto;
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+.post-body h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--main-text-color);
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+}
+.post-body p {
+    margin-bottom: 1.5em;
+}
+.post-body ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+.post-body strong {
+    color: #dcdcdc;
+    font-weight: 600;
+}
+
+/* Кнопка "Назад" */
+.back-link-wrapper {
+    text-align: center;
+    margin-top: 60px;
+}
+.back-link {
+    display: inline-block;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    
+    /* Эффект матового стекла */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #DADEDF;
+
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.post-body {
+    max-width: 800px; /* Оптимальная ширина для чтения */
+    margin: 0 auto;
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    line-height: 1.9;
+
+    /* ===== НОВЫЕ СВОЙСТВА ДЛЯ ПОДЛОЖКИ ===== */
+    padding: 40px; /* Внутренние отступы */
+    border-radius: 12px; /* Скругление углов */
+    
+    /* Эффект "матового стекла" */
+    background: rgba(33, 33, 33, 0.85); /* Полупрозрачный фон */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-body h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--main-text-color);
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+/* Сделаем первый подзаголовок без отступа сверху */
+.post-body h3:first-of-type {
+    margin-top: 0;
+}
+
+/* --- Исправление для страниц с фоновым изображением --- */
+
+/* Делаем фон body прозрачным ТОЛЬКО на страницах, где есть фоновая картинка,
+   чтобы она стала видна из-под него. */
+body.has-page-background {
+    background-color: transparent;
+}
+
+/* --- Универсальный фон и затемнение для страниц --- */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Можете менять значение 0.7 для силы затемнения */
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+.custom-scrollbar-track {
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    right: 10px;
+    width: 15px;
+    z-index: 999;
+}
+
+.custom-scrollbar-thumb {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    cursor: grab;
+}
+
+/* Стиль для курсора при перетаскивании */
+body.is-dragging,
+body.is-dragging .custom-scrollbar-thumb {
+    cursor: grabbing;
+    user-select: none;
+}
+
+/* --- АДАПТИВНОСТЬ для отдельного поста --- */
+
+@media (max-width: 768px) {
+    .single-post-wrapper {
+    padding: 120px 25px 80px 25px; /* Задаем боковые отступы ЗДЕСЬ */
+    box-sizing: border-box; /* Гарантируем, что padding не увеличит ширину */
+    }
+
+    .post-header-full {
+    padding: 0; /* Убираем дублирующийся padding отсюда */
+    }
+    
+    .post-header-full .post-title-full {
+        font-size: 2.2rem;
+    }
+
+    .featured-media {
+    aspect-ratio: 3 / 2.2;
+    width: 100%; /* Картинка просто занимает 100% ширины родителя (у которого уже есть отступы) */
+    margin-bottom: 40px; 
+    border-radius: 12px;
+    }
+
+    .post-body {
+        padding: 0;
+        font-size: 1rem;
+        line-height: 1.8;
+        
+        /* Убираем эффект стекла на мобильных для лучшей читаемости */
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+    }
+}

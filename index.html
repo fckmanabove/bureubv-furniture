@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUREAUV FURNITURE — Two Blocks Example</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER  -->
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="img/logo_portable.svg">
+                    <img src="img/logo.svg" alt="Логотип BUREAUV FURNITURE">
+                </picture>
+            </a>
+            <div class="burger-menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- SOCIAL LINKS -->
+    <div class="social-links">
+        <a href="https://wa.me/79165794892?text=Здравствуйте" target="_blank" aria-label="WhatsApp"><img src="img/wa.png" alt="WhatsApp"></a>
+        <a href="https://t.me/alexeybasov" target="_blank" aria-label="Telegram"><img src="img/tg.png" alt="Telegram"></a>
+        <a href="#" id="email-copy-btn" aria-label="Скопировать email"><img src="img/email.svg" alt="Email"></a>
+    </div>
+
+    <!-- MENU OVERLAY -->
+    <div class="menu-overlay">
+        <div class="menu-panel">
+            <nav class="main-menu">
+                <ul class="menu-column">
+                    <li><a href="#">Портфолио</a></li>
+                    <li><a href="#">Этапы работ</a></li>
+                    <li><a href="html/likbez.html">Советы</a></li>
+                    <li><a href="html/about-us.html">О нас</a></li>
+                </ul>
+            </nav>
+            <div class="menu-contact-email">
+                <a href="tel:+79165794892">+7 (916) 579-48-92</a>
+                <a href="mailto:a.basov@bureaubv.ru">a.basov@bureaubv.ru</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Уведомление о копировании почты  -->
+    <div id="copy-notification">
+        <p>Готово! Почта скопирована в буфер обмена.</p>
+    </div>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main>
+        <!-- ПЕРВЫЙ ЭКРАН (HERO SECTION) -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="fade-in-up">Мебель индивидуального изготовления</h1>
+                <p class="fade-in-up">Создаем уникальные пространства, отражающие вашу личность. От идеи до безупречного воплощения.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="cta-button fade-in-up">Смотреть проекты</a>
+                    <a href="#" class="cta-button fade-in-up">Обсудить проект</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК ПРОЕКТОВ (СЛАЙДЕР) -->
+        <section class="projects-section">
+            <div class="container fade-in-up">
+                <h2 class="section-title">Наши проекты</h2>
+            </div>
+            <div class="project-slider-area fade-in-up">
+                <div class="slider-wrapper">
+                    <div id="projects-slider" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <!-- Слайд 1 -->
+                                <li class="splide__slide"><a href="#" class="project-card"><img src="img/project-1.jpg" alt="Проект кухни-гостиной в ЖК Зиларт"><div class="project-card-content"><h3>Кухня-гостиная</h3><p>ЖК «ЗИЛАРТ»</p></div></a></li>
+                                <!-- Слайд 2 -->
+                                <li class="splide__slide"><a href="#" class="project-card"><img src="img/project-2.jpg" alt="Проект гардеробной в загородном доме"><div class="project-card-content"><h3>Гардеробная</h3><p>Загородный дом</p></div></a></li>
+                                <!-- Слайд 3 -->
+                                <li class="splide__slide"><a href="#" class="project-card"><img src="img/project-3.jpg" alt="Проект мебели для ванной"><div class="project-card-content"><h3>Ванная комната</h3><p>Квартира в центре Москвы</p></div></a></li>
+                                <!-- Слайд 4 -->
+                                <li class="splide__slide"><a href="#" class="project-card"><img src="img/Project-4.jpg" alt="Проект встроенного шкафа"><div class="project-card-content"><h3>Встроенный шкаф</h3><p>ЖК «Событие»</p></div></a></li>
+                                <!-- Слайд 5 -->
+                                <li class="splide__slide"><a href="#" class="project-card"><img src="img/Project-5.jpg" alt="Проект кабинета"><div class="project-card-content"><h3>Кабинет</h3><p>Лофт на Красном Октябре</p></div></a></li>
+                                <!-- Слайд 6 -->
+                                <li class="splide__slide"><a href="#" class="project-card"><img src="img/project-6.jpg" alt="Проект стеновых панелей"><div class="project-card-content"><h3>Стеновые панели</h3><p>Частный пентхаус</p></div></a></li>
+                                <!-- Слайд 7 -->
+                                <li class="splide__slide"><a href="#" class="project-card"><img src="img/project-7.jpg" alt="Проект винного шкафа"><div class="project-card-content"><h3>Винный шкаф</h3><p>Ресторан в Хамовниках</p></div></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-footer">
+                    <div class="splide-controls">
+                        <button class="splide-arrow--custom splide-arrow--prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"/></svg></button>
+                        <div class="splide-pagination-custom">
+                            <span class="splide-pagination-custom__page">1</span>
+                            <div class="splide-pagination-custom__track"><div class="splide-pagination-custom__bar"></div></div>
+                            <span class="splide-pagination-custom__total">3</span>
+                        </div>
+                        <button class="splide-arrow--custom splide-arrow--next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg></button>
+                    </div>
+                    <div class="view-all-container">
+                        <a href="#" class="view-all-button">
+                            Смотреть все проекты
+                            <div class="view-all-button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z"/></svg></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+            <!-- НАЧАЛО БЛОКА: СЕКЦИЯ С ПРЕИМУЩЕСТВАМИ -->
+                <section class="advantages-section">
+                    <div class="container fade-in-up">
+                        <h2 class="section-title">Наши принципы</h2>
+                        <div class="advantages-grid">
+                            
+                            <!-- Карточка 1: "Долго" -> Скрупулезность -->
+                            <div class="advantage-card">
+                                <img src="img/icon_precision.svg" alt="Иконка точности" class="advantage-icon">
+                                <h3>Скрупулёзность в деталях</h3>
+                                <p>Мы не гонимся за скоростью, потому что настоящее качество требует времени. Каждый узел, стык и поверхность проходят многоступенчатый контроль, чтобы достичь безупречного результата.</p>
+                            </div>
+
+                            <!-- Карточка 2: "Дорого" -> Инвестиция -->
+                            <div class="advantage-card">
+                                <img src="img/icon_materials.png" alt="Иконка материалов" class="advantage-icon">
+                                <h3>Инвестиция в качество</h3>
+                                <p>Мы используем только лучшие материалы и проверенные технологии. Это не просто мебель — это долгосрочная инвестиция в эстетику и функциональность вашего пространства, которая будет служить десятилетиями.</p>
+                            </div>
+
+                            <!-- Карточка 3: "Ахуенно" -> Совершенство -->
+                            <div class="advantage-card">
+                                <img src="img/icon_result.png" alt="Иконка результата" class="advantage-icon">
+                                <h3>Результат, превосходящий ожидания</h3>
+                                <p>Наша цель — не просто выполнить заказ, а создать центральный элемент вашего интерьера, который вызывает эмоции. Совершенство в форме, функции и ощущении — это наш стандарт.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <!-- КОНЕЦ БЛОКА -->
+
+
+
+
+            <section class="contact-form-section">
+                <div class="form-container">
+                    <h2 class="section-title fade-in-up">Обсудим ваш проект?</h2>
+                    <p class="section-subtitle fade-in-up">Оставьте заявку, и мы свяжемся с вами в ближайшее время, чтобы обсудить детали и ответить на все вопросы.</p>
+                    
+                    <form id="contact-form" class="contact-form fade-in-up">
+                        <div class="form-group">
+                            <label for="contact-info">Ваш Telegram или телефон</label>
+                            <input type="text" id="contact-info" name="contact" placeholder="@username или +7 (999) 123-45-67" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-method-selector">Как с вами связаться?</label>
+                            <div class="contact-method-selector" id="contact-method-selector">
+                                <div class="active-method-pill"></div>
+                                <button type="button" data-method="whatsapp" title="WhatsApp"><img src="img/wa.png" alt="WhatsApp"></button>
+                                <button type="button" data-method="telegram" class="active" title="Telegram"><img src="img/tg.png" alt="Telegram"></button>
+                                <button type="button" data-method="email" title="Email"><img src="img/email.svg" alt="Email"></button>
+                                <button type="button" data-method="phone" title="Телефон"><img src="img/phone.png" alt="Телефон"></button>
+                            </div>
+                            <input type="hidden" id="contact-method-hidden" name="contact_method" value="telegram">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">Сообщение</label>
+                            <textarea id="contact-message" name="message" rows="5" placeholder="Опишите вашу задачу или вопрос..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" id="form-submit-btn" class="cta-button">Отправить заявку</button>
+                        
+                        <p id="form-status"></p>
+                    </form>
+                </div>
+            </section>
+            <!-- КОНЕЦ БЛОКА ДЛЯ КОПИРОВАНИЯ -->
+
+
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="js/lenis.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

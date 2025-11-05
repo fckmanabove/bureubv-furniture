@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ликбез - Бюро БВ</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/likbez.css">
+
+    <!-- Подключаем GSAP и плагины в <head> с атрибутом defer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+</head>
+<body class="has-page-background"> <!-- ИСПРАВЛЕНИЕ: Добавлен класс для JS -->
+
+    <!-- ИСПРАВЛЕНИЕ: Блок с видео заменен на блок для случайного фона -->
+    <div class="page-background">
+        <div class="page-overlay"></div>
+    </div>
+
+    <!-- Хедер и меню остаются без изменений -->
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="../img/logo_portable.svg">
+                    <img src="../img/logo.svg" alt="Логотип">
+                </picture>
+            </a>
+            <div class="burger-menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </div>
+        </div>
+    
+        <div class="social-links">
+            <a href="https://wa.me/79165794892?text=Здравствуйте" target="_blank" aria-label="WhatsApp">
+                <img src="../img/wa.png" alt="WhatsApp">
+            </a>
+            <a href="https://t.me/alexeybasov" target="_blank" aria-label="Telegram">
+                <img src="../img/tg.png" alt="Telegram">
+            </a>
+            <a href="#" id="email-copy-btn" aria-label="Скопировать email">
+                <img src="../img/email.svg" alt="Email">
+            </a>
+        </div>
+    </header>
+
+    <div class="menu-overlay">
+        <!-- ... твой код меню ... -->
+        <div class="menu-panel">
+            <nav class="main-menu">
+                <ul class="menu-column">
+                    <li><a href="../index.html">Портфолио</a></li>
+                    <li><a href="#">Этапы работ</a></li>
+                    <li><a href="likbez.html">Советы</a></li>
+                    <li><a href="about-us.html">О нас</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-contact-email">
+                <a href="tel:+79165794892">+7 (916) 579-48-92</a>
+                <a href="mailto:a.basov@bureaubv.ru">a.basov@bureaubv.ru</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- ИСПРАВЛЕНИЕ: Добавлен класс для анимации -->
+        <div class="likbez-header fade-in-up">
+            <h1>Ликбез</h1>
+            <p>Делимся опытом, рассказываем о материалах и технологиях. Коротко и по делу о том, что важно знать при создании сложных интерьеров и изделий.</p>
+        </div>
+
+        <div class="likbez-feed">
+
+            <!-- ИСПРАВЛЕНИЕ: Добавлен класс для анимации -->
+            <a href="likbez-post-mdf-vs-ldsp.html" class="likbez-post fade-in-up">
+                <div class="post-media">
+                    <img src="../img/random1.png" alt="Сравнение материалов">
+                </div>
+                <div class="post-content">
+                    <p class="post-meta">МАТЕРИАЛЫ · 21 АВГУСТА 2025</p>
+                    <h2 class="post-title">Чем МДФ в эмали отличается от ЛДСП?</h2>
+                    <p class="post-excerpt">Ключевое различие — в основе и покрытии. ЛДСП — это ламинированная древесно-стружечная плита, бюджетный и практичный материал. МДФ — более плотная и гладкая плита...</p>
+                    <span class="post-read-more">Читать далее &rarr;</span>
+                </div>
+            </a>
+
+            <!-- ИСПРАВЛЕНИЕ: Добавлен класс для анимации -->
+            <a href="#" class="likbez-post fade-in-up">
+                <div class="post-media">
+                    <video controls muted playsinline poster="../img/random2.png">
+                        <source src="../vid/random1.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+                <div class="post-content">
+                    <p class="post-meta">ТЕХНОЛОГИИ · 15 АВГУСТА 2025</p>
+                    <h2 class="post-title">Что такое "смарт-стекло" и как оно работает?</h2>
+                    <p class="post-excerpt">Смарт-стекло (или электрохромное стекло) — это технология, позволяющая менять прозрачность стекла одним нажатием кнопки...</p>
+                    <span class="post-read-more">Читать далее &rarr;</span>
+                </div>
+            </a>
+
+            <!-- ИСПРАВЛЕНИЕ: Добавлен класс для анимации -->
+            <a href="#" class="likbez-post fade-in-up">
+                <div class="post-media">
+                    <img src="../img/random3.png" alt="Авторский надзор на стройке">
+                </div>
+                <div class="post-content">
+                    <p class="post-meta">ПРОЦЕССЫ · 08 АВГУСТА 2025</p>
+                    <h2 class="post-title">Зачем нужен авторский надзор?</h2>
+                    <p class="post-excerpt">Авторский надзор — это гарантия того, что строители реализуют проект именно так, как он был задуман дизайнером и конструктором...</p>
+                    <span class="post-read-more">Читать далее &rarr;</span>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="site-footer-info"></footer>
+    <div class="custom-scrollbar-track"><div class="custom-scrollbar-thumb"></div></div>
+
+    <!-- ИСПРАВЛЕНИЕ: Правильное подключение скриптов -->
+    <script src="../js/lenis.min.js"></script>
+    <script src="../js/script.js"></script>
+    
+    <div id="copy-notification">
+        <p>Готово! Почта скопирована в буфер обмена.</p>
+    </div>
+
+</body>
+</html>

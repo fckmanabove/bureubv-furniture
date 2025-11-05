@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Конструкторское бюро БВ. Узнайте о нашей философии, команде и процессе работы над изделиями индивидуального изготовления. От идеи до монтажа.">
+    
+    <title>О нас - Бюро БВ</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+    
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/about-us.css"> 
+
+    <!-- ИСПРАВЛЕНИЕ: Подключаем GSAP и плагины в <head> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+</head>
+<body class="has-page-background"> <!-- ИСПРАВЛЕНИЕ: Добавлен класс для фона -->
+
+    <!-- Этот блок теперь будет работать со скриптом случайного фона -->
+    <div class="page-background">
+        <div class="page-overlay"></div>
+    </div>
+
+    <!-- Хедер остается без изменений -->
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="../img/logo_portable.svg">
+                    <img src="../img/logo.svg" alt="Логотип">
+                </picture>
+            </a>
+            <div class="burger-menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </div>
+        </div>
+    
+        <div class="social-links">
+            <a href="https://wa.me/79165794892?text=Здравствуйте" target="_blank" aria-label="WhatsApp">
+                <img src="../img/wa.png" alt="WhatsApp">
+            </a>
+            <a href="https://t.me/alexeybasov" target="_blank" aria-label="Telegram">
+                <img src="../img/tg.png" alt="Telegram">
+            </a>
+            <a href="#" id="email-copy-btn" aria-label="Скопировать email">
+                <img src="../img/email.svg" alt="Email">
+            </a>
+        </div>
+    </header>
+
+    <div class="menu-overlay">
+        <div class="menu-panel">
+            <!-- ИСПРАВЛЕНИЕ: Полностью заменено меню на новое, простое -->
+            <nav class="main-menu">
+                <ul class="menu-column">
+                    <li><a href="../index.html">Портфолио</a></li>
+                    <li><a href="#">Этапы работ</a></li>
+                    <li><a href="likbez.html">Советы</a></li>
+                    <li><a href="about-us.html">О нас</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-contact-email">
+                <a href="tel:+79165794892">+7 (916) 579-48-92</a>
+                <!-- Исправлена опечатка hre на href -->
+                <a href="mailto:a.basov@bureaubv.ru">a.basov@bureaubv.ru</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="about-page-wrapper">
+            <!-- ИСПРАВЛЕНИЕ: Добавлены классы для анимации -->
+            <section class="hero-section fade-in-up">
+                <h1>Индивидуальность, воплощённая в материале</h1>
+                <p>Мы — конструкторское бюро, которое верит, что каждый проект уникален. Наша задача — не просто изготовить изделие, а найти идеальный баланс между эстетикой, функцией и долговечностью.</p>
+            </section>
+
+            <section class="team-section fade-in-up">
+                <h2 class="section-title">КЛЮЧЕВЫЕ ФИГУРЫ</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="../img/team-member1.jpg" alt="Алексей Басов">
+                        <h3>Алексей Басов</h3>
+                        <p class="role">Основатель, главный конструктор</p>
+                        <p class="quote">"Мы не просто создаём изделия. Мы проектируем эмоции и решаем сложные задачи, превращая их в простую и элегантную форму."</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="../img/team-member2.jpg" alt="Екатерина Волкова">
+                        <h3>Екатерина Волкова</h3>
+                        <p class="role">Ведущий дизайнер</p>
+                        <p class="quote">"Гармония в пространстве рождается из диалога между материалом, светом и функцией. Моя задача — услышать этот диалог."</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="../img/team-member3.jpg" alt="Дмитрий Сергеев">
+                        <h3>Дмитрий Сергеев</h3>
+                        <p class="role">Руководитель проектов</p>
+                        <p class="quote">"Самые амбициозные идеи требуют безупречного исполнения. Я слежу за тем, чтобы каждый проект был реализован точно в срок."</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="process-section fade-in-up">
+                <h2 class="section-title">КАК МЫ РАБОТАЕМ</h2>
+                <ol class="process-steps">
+                    <li class="process-step">
+                        <h3>Консалтинг, эскиз, просчёт</h3>
+                        <p>Внимательно изучаем вашу идею, предлагаем решения и составляем предварительную смету.</p>
+                    </li>
+                    <li class="process-step">
+                        <h3>Проектирование</h3>
+                        <p>Разрабатываем точную конструкторскую документацию и создаём трёхмерную модель будущего изделия.</p>
+                    </li>
+                    <li class="process-step">
+                        <h3>Производство</h3>
+                        <p>Воплощаем проект в жизнь, контролируя каждый этап изготовления на собственном производстве.</p>
+                    </li>
+                     <li class="process-step">
+                        <h3>Монтаж</h3>
+                        <p>Бережно доставляем и профессионально устанавливаем готовое изделие на вашем объекте.</p>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="cta-section fade-in-up">
+                <h2>Готовы воплотить вашу идею?</h2>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-button">Связаться с нами</a>
+                    <a href="../index.html" class="cta-button">Посмотреть проекты</a> <!-- ИЗМЕНЕНО: Ссылка на главную -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer-info">
+        <div class="legal-section">
+            <div class="legal-details">
+                <p><strong>Полное наименование:</strong> Общество с ограниченной ответственностью «Бюро БВ»</p>
+                <p><strong>ОГРН:</strong> 1234567890123</p>
+                <p><strong>ИНН:</strong> 7701234567</p>
+                <p><strong>Юридический адрес:</strong> 123456, г. Москва, ул. Проектная, д. 1, офис 101</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="custom-scrollbar-track">
+        <div class="custom-scrollbar-thumb"></div>
+    </div>
+
+    <!-- ИСПРАВЛЕНИЕ: Правильное подключение скриптов -->
+    <script src="../js/lenis.min.js"></script>
+    <script src="../js/script.js"></script> 
+
+    <div id="copy-notification">
+        <p>Готово! Почта скопирована в буфер обмена.</p>
+    </div>
+
+</body>
+</html>

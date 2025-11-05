@@ -1,0 +1,286 @@
+/* --- НОВЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ "О НАС" (в стиле "Контакты") --- */
+
+/* Скрываем стандартный скроллбар браузера */
+html {
+    scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+/* --- Универсальный фон и затемнение для страниц --- */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    /* JS будет подставлять сюда картинку */
+}
+
+.page-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+/* Обертка для всего контента в стиле страницы "Контакты" */
+.about-page-wrapper {
+    max-width: 1200px; /* Сделаем чуть поуже, чем контакты, для лучшей читаемости */
+    margin: 0 auto;
+    padding: 150px 50px 100px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* Расстояние между "стеклянными" блоками */
+}
+
+/* --- Общий стиль для всех контентных блоков --- */
+.hero-section,
+.team-section,
+.process-section,
+.cta-section {
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+
+    /* Эффект матового стекла */
+    background: rgba(42, 42, 42, 0.7);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-align: center; /* Центрируем весь контент внутри блоков */
+}
+
+/* Стили для первой секции (Hero) */
+.hero-section h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+}
+.hero-section p {
+    font-size: 1.4rem;
+    color: #b0b0b0;
+    max-width: 800px;
+    margin: 0 auto; /* Центрируем параграф */
+    line-height: 1.7;
+}
+
+/* Стили для заголовков секций (КЛЮЧЕВЫЕ ФИГУРЫ, КАК МЫ РАБОТАЕМ) */
+.section-title {
+    font-size: 2.5rem; /* Делаем заголовки крупнее */
+    font-weight: 700;
+    color: #ffffff; /* Белый цвет */
+    letter-spacing: 0;
+    margin: 0 0 40px 0;
+    padding: 0;
+    border: none; /* Убираем старую линию-разделитель */
+    position: static; /* Убираем позиционирование для псевдо-элемента */
+}
+.section-title::before {
+    display: none; /* Убираем декоративную линию */
+}
+
+/* Секция с командой */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Чуть увеличим мин. ширину карточки */
+    gap: 40px;
+}
+.team-member img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+.team-member h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+}
+.team-member .role {
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+.team-member .quote {
+    font-style: italic;
+    color: #dcdcdc;
+}
+
+/* Секция "Как мы работаем" */
+.process-steps {
+    list-style: none;
+    padding: 0;
+    counter-reset: process-counter;
+    text-align: left; /* Внутри блока текст снова выравниваем по левому краю для читаемости */
+    max-width: 700px; /* Ограничиваем ширину для лучшего вида */
+    margin: 0 auto; /* И центрируем сам список */
+}
+.process-step {
+    padding-left: 60px;
+    position: relative;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(220, 220, 220, 0.1);
+    margin-bottom: 30px;
+}
+.process-step:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.process-step::before {
+    counter-increment: process-counter;
+    content: "0" counter(process-counter);
+    position: absolute;
+    left: 0;
+    top: -2px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #212121;
+    background-color: #a0a0a0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.process-step h3 {
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+}
+.process-step p {
+    margin: 0;
+    color: #b0b0b0;
+    line-height: 1.7;
+}
+
+/* Секция с призывом к действию (CTA) */
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin: 0 0 35px 0;
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #DADEDF;
+    transition: all 0.3s ease;
+}
+.cta-button:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Футер с юридической информацией */
+.site-footer-info {
+    max-width: 1200px;
+    margin: 50px auto 50px auto;
+    padding: 40px 50px;
+    background-color: #1a1a1a;
+    border-radius: 25px;
+}
+.site-footer-info .legal-section .section-title { display: none; }
+.site-footer-info .legal-details {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    line-height: 1.8;
+}
+.site-footer-info .legal-details p { margin: 5px 0; }
+.site-footer-info .legal-details strong {
+    color: #dcdcdc;
+    font-weight: 600;
+}
+
+/* Кастомный скроллбар */
+.custom-scrollbar-track {
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    right: 10px;
+    width: 15px;
+    z-index: 999;
+}
+.custom-scrollbar-thumb {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    cursor: grab;
+}
+body.is-dragging,
+body.is-dragging .custom-scrollbar-thumb {
+    cursor: grabbing;
+    user-select: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .about-page-wrapper {
+    padding: 120px 25px 80px 25px;
+    gap: 30px;
+    }
+    .hero-section,
+    .team-section,
+    .process-section,
+    .cta-section {
+        padding: 30px;
+    }
+    .hero-section h1 { font-size: 2.8rem; }
+    .hero-section p { font-size: 1.2rem; }
+    .section-title { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+    .cta-buttons {
+        flex-direction: column;
+    }
+    .cta-button {
+        width: 100%;
+    }
+}
+
+*, *::before, *::after {
+    word-wrap: break-word; /* Для старых браузеров */
+    overflow-wrap: break-word; /* Современный стандарт */
+}
+/* --- ФИНАЛЬНОЕ РЕШЕНИЕ ДЛЯ ЦЕНТРИРОВАНИЯ В КАРТОЧКАХ --- */
+
+.team-member {
+    /* 1. Превращаем карточку во flex-контейнер для управления дочерними элементами */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем все дочерние элементы по горизонтали */
+}
+
+.team-member h3,
+.team-member .role,
+.team-member .quote {
+    /* 2. Ограничиваем максимальную ширину текстовых блоков.
+       Теперь у них есть пространство для центрирования! */
+    max-width: 90%; 
+    
+    /* 3. Центрируем сам текст внутри этих (уже более узких) блоков */
+    text-align: center;
+}

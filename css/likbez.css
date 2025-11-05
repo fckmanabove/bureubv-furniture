@@ -1,0 +1,276 @@
+/* --- Стили для страницы "Ликбез" --- */
+
+/* Скрываем стандартный скроллбар */
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+
+/* Заголовок страницы */
+.likbez-header {
+    padding: 50px 50px 80px 50px;
+    text-align: center;
+}
+.likbez-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+.likbez-header p {
+    font-size: 1.3rem;
+    color: #b0b0b0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Лента постов */
+.likbez-feed {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px 100px 50px;
+    display: grid;
+    /* ИЗМЕНЕНИЕ: Устанавливаем три равные колонки */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px;
+}
+.likbez-post {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 12px;
+    margin-bottom: 0; /* Убираем нижний отступ, теперь за него отвечает gap */
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.post-content {
+    padding: 25px; /* Уменьшаем внутренние отступы */
+}
+.post-title {
+    font-size: 1.7rem; /* Уменьшаем заголовок */
+    font-weight: 700;
+    margin: 0 0 15px 0;
+}
+
+.post-media img,
+.post-media video {
+    width: 100%;
+    height: 100%; /* Растягиваем на всю высоту контейнера */
+    display: block;
+    object-fit: cover; /* Масштабируем, чтобы заполнить блок, обрезая лишнее */
+}
+
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 10px;
+}
+
+.post-title a {
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+
+.post-excerpt {
+    color: #b0b0b0;
+    line-height: 1.8;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Помещает видео ЗА ВСЕ остальные элементы */
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    /* Масштабирует видео, чтобы оно заполнило экран без искажений */
+    object-fit: cover; 
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Создает эффект затемнения. Можете менять 0.7 на другое значение. */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1; /* Убедимся, что затемнение над видео */
+}
+
+/* --- Универсальный фон и затемнение для страниц --- */
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Можете менять значение 0.7 для силы затемнения */
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.post-media {
+    position: relative;
+    width: 100%;
+    background-color: #212121;
+    aspect-ratio: 16 / 9 ; /* <-- ЗАМЕНЯЕМ НА НОВОЕ ЗНАЧЕНИЕ */
+    max-height: 500px;
+    overflow: hidden;
+}
+
+/* Создаём полупрозрачное затемнение, которое будет появляться при наведении */
+.post-media::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Изначально полностью прозрачное */
+    transition: background-color 0.4s ease;
+}
+
+/* Стили для кнопки "Читать далее" */
+.post-read-more {
+    /* Позиционируем кнопку точно по центру всей карточки */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Убедимся, что кнопка поверх картинки и затемнения */
+
+    /* Стили Glassmorphism для эллипса */
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px; /* Создаёт форму эллипса */
+    color: #fff;
+    font-weight: 600;
+
+    /* Прячем кнопку по умолчанию и добавляем плавность */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+
+/* --- Эффекты при наведении --- */
+
+/* При наведении на всю карточку... */
+.likbez-post:hover {
+    transform: translateY(-5px);
+    border-color: #666;
+}
+
+/* ...показываем кнопку "Читать далее"... */
+.likbez-post:hover .post-read-more {
+    opacity: 1;
+}
+
+/* ...и активируем затемнение картинки. */
+.likbez-post:hover .post-media::after {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- АДАПТИВНОСТЬ для "Ликбез" --- */
+
+@media (max-width: 768px) {
+    .likbez-header {
+        padding: 120px 25px 60px 25px;
+    }
+
+    .likbez-header h1 { font-size: 2.8rem; }
+    .likbez-header p { font-size: 1.1rem; }
+
+       .likbez-feed {
+        grid-template-columns: 1fr; /* Возвращаем одну колонку на мобильных */
+        gap: 40px; /* Можно оставить или уменьшить */
+        padding: 0 25px 80px 25px;
+    }
+
+     .likbez-post {
+        margin-bottom: 0; /* Это правило уже должно быть, но убедимся */
+    }
+    
+    .post-content { padding: 25px; }
+    .post-title { font-size: 1.5rem; }
+    .post-excerpt { font-size: 1rem; line-height: 1.7; }
+    /* --- ЗАМЕНИТЕ НА ЭТОТ БЛОК --- */
+    .post-read-more {
+    /* 1. Отменяем абсолютное позиционирование, чтобы кнопка 
+       встала в общий поток контента (после текста) */
+    position: static;
+    
+    /* 2. Убираем все трансформации, которые ее центрировали */
+    transform: none;
+
+    /* 3. Делаем ее видимой (это правило уже было) */
+    opacity: 1;
+
+    /* 4. Превращаем span в блочный элемент, чтобы margin сработал,
+       но делаем его inline-block, чтобы он не растягивался на всю ширину */
+    display: inline-block;
+    
+    /* 5. Добавляем отступ сверху, чтобы отодвинуть от текста-описания */
+    margin-top: 20px;
+
+    /* 6. Опционально: можно убрать размытие, так как под кнопкой больше нет картинки,
+       и сделать фон чуть плотнее для лучшей читаемости */
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .post-media::after {
+    /* Убираем затемнение на мобильных, оно больше не нужно */
+    display: none;
+    }
+
+    .likbez-post:hover {
+        transform: none;
+        border-color: #444;
+    }
+}
+
+.custom-scrollbar-track {
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    right: 10px;
+    width: 15px;
+    z-index: 999;
+}
+
+.custom-scrollbar-thumb {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    cursor: grab;
+}
+
+/* Стиль для курсора при перетаскивании */
+body.is-dragging,
+body.is-dragging .custom-scrollbar-thumb {
+    cursor: grabbing;
+    user-select: none;
+}

@@ -1,0 +1,1082 @@
+@font-face { 
+    font-family: 'Mulish'; 
+    src: url('../fonts/Mulish-Light.woff2') format('woff2'); 
+    font-weight: 300; 
+    font-style: normal; 
+    font-display: swap; 
+}
+
+@font-face { 
+    font-family: 'Mulish'; 
+    src: url('../fonts/Mulish-Medium.woff2') format('woff2'); 
+    font-weight: 500; 
+    font-style: normal;
+    font-display: swap; 
+}
+
+@font-face { 
+    font-family: 'Mulish'; 
+    src: url('../fonts/Mulish-SemiBold.woff2') format('woff2'); 
+    font-weight: 600; 
+    font-style: normal; 
+    font-display: swap; 
+}
+
+@font-face { 
+    font-family: 'Mulish'; 
+    src: url('../fonts/Mulish-Bold.woff2') format('woff2'); 
+    font-weight: 700; 
+    font-style: normal; 
+    font-display: swap; 
+
+}
+
+:root {
+    --background-color: #212121; 
+    --main-text-color: #ffffff; 
+}
+
+body {
+    margin: 0; 
+    padding: 0; 
+    background-color: var(--background-color); 
+    color: var(--main-text-color); 
+    font-family: 'Mulish', sans-serif; 
+    font-weight: 600;
+    box-sizing: border-box; 
+}
+
+*, *::before, *::after { 
+    box-sizing: inherit; 
+
+}
+
+html { 
+    scrollbar-width: none; 
+}
+
+html::-webkit-scrollbar { 
+    display: none; 
+}
+
+
+.site-header { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    padding: 15px 0;
+    z-index: 100; 
+}
+
+.site-header .container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 1700px; 
+    margin: 0 auto; 
+    padding: 0 5%; 
+}
+
+.logo img { 
+    height: 60px; 
+    display: block; 
+}
+
+.burger-menu { 
+    width: 32px; 
+    height: 16px; 
+    position: relative; 
+    cursor: pointer; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+.burger-line { 
+    width: 100%; 
+    height: 3px; 
+    background-color: #ffffff; 
+    border-radius: 3px; 
+    transition: transform 0.3s ease-in-out; 
+    transform-origin: center; 
+
+}
+
+body:not(.menu-is-open) 
+.burger-menu:hover 
+.burger-line:nth-child(1) { 
+    transform: translateY(-2px); 
+}
+
+body:not(.menu-is-open) 
+.burger-menu:hover 
+.burger-line:nth-child(2) { 
+    transform: translateY(2px); 
+}
+
+body.menu-is-open 
+.burger-menu 
+.burger-line:nth-child(1) { 
+    transform: translateY(6.5px) rotate(45deg);
+}
+
+body.menu-is-open 
+.burger-menu 
+.burger-line:nth-child(2) { 
+    transform: translateY(-6.5px) rotate(-45deg); 
+}
+
+body.menu-is-open 
+.site-header { 
+    z-index: 1001; 
+}
+
+
+.menu-overlay { 
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 1000; 
+    visibility: hidden; 
+    opacity: 0; 
+    transition: opacity 0.4s ease, visibility 0.4s ease; 
+}
+
+body.menu-is-open { 
+    overflow: hidden;
+}
+
+body.menu-is-open .menu-overlay { 
+    visibility: visible; 
+    opacity: 1; 
+}
+
+body.menu-is-open .menu-panel { 
+    transform: translateX(0);
+}
+
+.menu-panel { 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    width: 90%; 
+    max-width: 400px; 
+    height: 100%;
+    background-color: #2e2e2e; 
+    padding: 150px 40px 50px; 
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2); 
+    overflow-y: auto; 
+    transform: translateX(100%); 
+    transition: transform 0.4s ease-in-out; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+.main-menu { 
+    display: flex; 
+}
+
+.menu-column { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    flex-direction: 
+    column; 
+    gap: 25px; 
+    width: 100%; 
+}
+
+.menu-column a { 
+    color: #dcdcdc; 
+    text-decoration: none; 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    transition: color 0.3s ease; 
+    white-space: nowrap;
+    position: relative; 
+    padding-bottom: 5px; 
+    display: block; 
+}
+
+.menu-column a::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 0; 
+    height: 2px; 
+    background-color: #ffffff; 
+    transition: width 0.4s ease;
+}
+
+.menu-column a:hover { 
+    color: #ffffff; 
+}
+
+.menu-column a:hover::after { 
+    width: 100%; 
+}
+
+.menu-contact-email { 
+    margin-top: 30px; 
+    border-bottom: 1px solid rgba(220, 220, 220, 0.3);
+    padding-bottom: 15px; 
+    display: flex; 
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.menu-contact-email a { 
+    text-decoration: none; 
+    font-size: 18px; 
+    color: #b0b0b0; 
+    transition: color 0.3s ease; 
+}
+
+.menu-contact-email a:hover { 
+    color: #ffffff; 
+}
+
+.social-links { 
+    position: fixed; 
+    bottom: 30px; 
+    left: 5%; 
+    z-index: 1000; 
+    display: flex; 
+    gap: 20px;
+}
+
+.social-links a { 
+    display: block; 
+    transition: transform 0.3s ease; 
+}
+
+.social-links a:hover { 
+    transform: scale(1.1); 
+}
+
+.social-links img { 
+    width: 24px; 
+    height: auto; 
+    display: block; 
+}
+
+.hero {
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
+    background-image: url('../img/heic222.png'); 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat; 
+}
+
+.hero::before { 
+    content: '';
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.35); 
+    z-index: 1; 
+}
+
+.hero-content { 
+    position: relative;
+    z-index: 2; 
+    text-align: center; 
+    max-width: 800px; 
+    color: #ffffff; 
+}
+
+.hero-content h1 { 
+    font-size: 3.5rem; 
+    font-weight: 800;
+    margin: 0 0 15px 0; 
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.hero-content p { 
+    font-size: 1.25rem; 
+    font-weight: 300; 
+    line-height: 1.6; 
+    margin: 0 0 30px 0; 
+    max-width: 650px;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.hero-buttons { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap;
+}
+
+.cta-button { 
+    display: inline-block; 
+    padding: 15px 40px; 
+    text-decoration: none; 
+    font-weight: 700; 
+    border-radius: 50px; 
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(10px);
+    color: #ffffff; 
+    transition: all 0.3s ease; 
+}
+
+.cta-button:hover { 
+    transform: scale(1.05); 
+    background: rgba(255, 255, 255, 0.2); 
+    border-color: rgba(255, 255, 255, 0.8); 
+}
+
+#copy-notification { 
+    position: fixed; 
+    bottom: 30px; 
+    left: 50%; 
+    transform: translate(-50%, 20px);
+    background-color: rgba(42, 42, 42, 0.9); 
+    backdrop-filter: blur(10px); 
+    color: #dcdcdc; 
+    padding: 15px 25px; 
+    border-radius: 10px; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center; 
+    font-size: 14px;
+    z-index: 9999; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s; 
+}
+
+#copy-notification.show { 
+    opacity: 1; 
+    visibility: visible; 
+    transform: translate(-50%, 0); 
+}
+
+.projects-section {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background-image: url('../img/Project-14.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.projects-section .container,
+.projects-section .project-slider-area {
+    position: relative;
+    z-index: 2;
+}
+
+.projects-section .container {
+    max-width: 1700px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.project-slider-area {
+    max-width: 1700px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.slider-wrapper {
+    margin: 0;
+    max-width: 100%;
+    padding: 30px 80px;
+    background-color: rgba(42, 42, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
+    box-sizing: border-box; 
+}
+
+#projects-slider {
+    width: 100%;
+    padding: 0; 
+}
+
+.splide__slide {
+    padding: 15px 0;
+}
+
+.project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #ffffff;
+    transition: box-shadow 0.3s ease;
+    height: 500px;
+    aspect-ratio: 2.5 / 4;
+    transform: translateZ(0);
+}
+
+.project-card:hover { 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4); 
+}
+
+.project-card img { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: 1; 
+    transition: transform 0.4s ease-in-out; 
+    border-radius: 12px; 
+}
+
+.project-card:hover img { 
+    transform: scale(1.05); 
+}
+
+.project-card::after { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 2; 
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%); 
+    transition: background 0.3s ease; 
+}
+
+.project-card-content { 
+    position: relative; 
+    z-index: 3; 
+    padding: 30px; 
+}
+
+.project-card-content h3 { 
+    font-size: 1.8rem; 
+    font-weight: 700; 
+    margin: 0 0 5px 0; 
+}
+
+.project-card-content p { 
+    font-size: 1rem; 
+    font-weight: 300; 
+    margin: 0; 
+    color: #dcdcdc; 
+}
+
+.slider-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 40px;
+    padding: 0 80px;
+    box-sizing: border-box;
+}
+
+.splide__pagination { 
+    display: none; 
+}
+
+.splide-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.splide-arrow--custom { 
+    width: 44px; 
+    height: 44px; 
+    border-radius: 50%; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    background: transparent; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 0; 
+    transition: border-color 0.3s ease; 
+}
+
+.splide-arrow--custom:hover { 
+    border-color: #ffffff;
+}
+
+.splide-arrow--custom:disabled { 
+    opacity: 0.3; 
+    cursor: not-allowed; 
+    border-color: rgba(255, 255, 255, 0.3) !important; 
+}
+
+.splide-arrow--custom svg { 
+    fill: #ffffff; 
+    width: 20px; 
+    height: 20px; 
+}
+
+.splide-pagination-custom { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    font-weight: 500; 
+}
+
+.splide-pagination-custom__track { 
+    width: 100px; 
+    height: 1px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    position: relative;
+}
+
+.splide-pagination-custom__bar { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    width: 0; 
+    background-color: #ffffff; 
+    transition: width 0.4s ease; 
+}
+
+.view-all-container {
+    text-align: right;
+}
+
+.view-all-button { 
+    display: inline-flex; 
+    align-items: center;
+    gap: 15px; 
+    padding: 15px 30px; 
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 50px; 
+    color: #ffffff; 
+    text-decoration: none;
+    font-weight: 600; 
+    transition: background 0.3s ease; 
+}
+
+.view-all-button:hover {
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+.view-all-button__icon { 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    background: #4b5a52; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.view-all-button__icon svg { 
+    fill: #ffffff; 
+    width: 18px; 
+    height: 18px; 
+}
+
+/* --- ЕДИНЫЙ И ИСПРАВЛЕННЫЙ БЛОК АДАПТИВНОСТИ ДЛЯ ПЛАНШЕТОВ И МОБИЛЬНЫХ --- */
+/* --- ЕДИНЫЙ БЛОК АДАПТИВНОСТИ ДЛЯ ПЛАНШЕТОВ С !IMPORTANT --- */
+@media (max-width: 768px) {
+    
+    /* --- Общие правила --- */
+    .menu-panel { max-width: 100%; width: 95%; padding: 120px 30px 70px 30px; }
+    .social-links { left: 30px; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p {
+        /* 
+         * ГЛАВНОЕ ИСПРАВЛЕНИЕ: 
+         * Жестко задаем размер шрифта в rem, чтобы он перестал масштабироваться.
+         * !important гарантирует, что это правило победит любое другое.
+         */
+        font-size: 1.1rem !important; 
+
+        /* 
+         * Теперь, когда шрифт станет достаточно большим, 
+         * эти правила заставят его переноситься.
+         */
+        max-width: 90%;
+        line-height: 1.7;
+        white-space: normal; /* На всякий случай, разрешаем переносы */
+    }
+
+    /* --- Секция проектов --- */
+    .projects-section .container {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        margin-top: 25px;
+    }
+    .projects-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    .projects-section .project-slider-area {
+        width: 100%;
+    }
+    .slider-wrapper {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        backdrop-filter: none;
+    }
+    .project-card {
+        aspect-ratio: 4 / 7;
+        height: auto;
+    }
+    .splide-controls {
+        display: none;
+    }
+
+    /* --- Контейнер кнопки --- */
+    .view-all-container {
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    /* --- КНОПКА С УСИЛЕННЫМИ СТИЛЯМИ --- */
+    .view-all-button {
+        padding: 15px 30px !important;
+        font-size: 1rem !important;
+        gap: 18px !important;
+    }
+
+    .view-all-button__icon {
+        width: 48px !important;
+        height: 48px !important;
+    }
+    
+    .view-all-button__icon svg {
+        width: 20px !important;
+        height: 20px !important;
+    }
+}
+
+/* --- ДОПОЛНИТЕЛЬНАЯ АДАПТАЦИЯ ДЛЯ САМЫХ МАЛЕНЬКИХ ЭКРАНОВ --- */
+@media (max-width: 480px) {
+    
+    /* Общие правила */
+    .hero-content h1 { font-size: 2rem; } /* Уменьшено */
+    .hero-content p { font-size: 0.5rem; }   /* Уменьшено */
+    .hero-buttons { flex-direction: column; gap: 15px; }
+    .cta-button { width: 100%; box-sizing: border-box; }
+
+    /* Секция проектов */
+    .projects-section .container {
+        margin-top: 20px; /* Уменьшено */
+    }
+    .projects-section .section-title {
+        font-size: 1.6rem; /* Уменьшено */
+    }
+    .view-all-button {
+        padding: 8px 15px !important;  /* Уменьшаем отступы, чтобы все влезло */
+        gap: 15px !important;          /* Расстояние между текстом и иконкой */
+        justify-content: center;       /* Центрируем блок текста и иконку */
+        align-items: center;
+    }
+
+        /* Контейнер с кнопками */
+    .hero-buttons {
+        flex-direction: column; /* Ставим кнопки в столбик */
+        gap: 15px;              /* Задаем вертикальный отступ между ними */
+    }
+
+    /* Сами кнопки */
+    .cta-button {
+        width: 100%;            /* Растягиваем каждую кнопку на всю ширину */
+        box-sizing: border-box; /* Гарантирует, что padding не сломает ширину */
+    }
+
+    /* НОВОЕ ПРАВИЛО: Стили для текстового блока */
+    .view-all-button__text {
+        font-size: 0.1rem !important;  /* Принудительно задаем нужный размер шрифта */
+        text-align: left !important;   /* Выравниваем по левому краю, как на скриншоте */
+        line-height: 1.2 !important;   /* Делаем строки текста ближе друг к другу */
+    }
+
+    /* Иконка */
+    .view-all-button__icon {
+        width: 40px !important;       /* Можно немного подкорректировать размер иконки */
+        height: 40px !important;
+        flex-shrink: 0;
+    }
+    
+    .view-all-button__icon svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}
+
+
+/* --- НАЧАЛО БЛОКА ДЛЯ КОПИРОВАНИЯ: СТИЛИ ДЛЯ ФОРМЫ --- */
+
+/* Стили для секции с фоном */
+.contact-form-section {
+    min-height: 100vh;
+    padding: 60px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-image: url('../img/project-16.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Слой затемнения для читаемости */
+.contact-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Контейнер для контента формы */
+.form-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Стили для самой формы и ее полей */
+.contact-form {
+    width: 100%;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #dcdcdc;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    color: #ffffff;
+    font-family: 'Mulish', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Стили для переключателя способа связи */
+.contact-method-selector {
+    position: relative;
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 28px;
+}
+.active-method-pill {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: calc(100% - 10px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+    z-index: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.contact-method-selector button {
+    flex-grow: 1;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+.contact-method-selector img {
+    width: 28px;
+    height: 28px;
+    transition: filter 0.3s ease;
+}
+.contact-method-selector button:not(.active) img {
+    filter: grayscale(1) brightness(0.7);
+}
+
+/* Статус отправки */
+#form-status {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    height: 20px;
+}
+#form-status.success {
+    color: #4CAF50;
+}
+#form-status.error {
+    color: #F44336;
+}
+
+/* --- КОНЕЦ БЛОКА ДЛЯ КОПИРОВАНИЯ --- */
+
+/* --- ЭФФЕКТ РАЗМЫТИЯ НА ВЕРХНЕЙ ГРАНИ СЕКЦИЙ --- */
+.projects-section::before,
+.contact-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    height: 150px; 
+    backdrop-filter: blur(8px);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* --- НОВЫЙ БЛОК: ЭФФЕКТ РАЗМЫТИЯ НА НИЖНЕЙ ГРАНИ СЕКЦИЙ --- */
+.hero::after,
+.projects-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* <-- Прикрепляем к низу */
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    height: 150px; 
+    backdrop-filter: blur(8px);
+    /* Градиент маски теперь инвертирован */
+    mask-image: linear-gradient(to top, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* --- ОБЩЕЕ ПРАВИЛО: КОНТЕНТ ДОЛЖЕН БЫТЬ ПОВЕРХ ЭФФЕКТОВ --- */
+.hero-content,
+.project-slider-area,
+.form-container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* --- СТИЛИ ДЛЯ СЕКЦИИ С ПРЕИМУЩЕСТВАМИ (ПОЛНОЭКРАННАЯ ВЕРСИЯ) --- */
+
+.advantages-section {
+    /* ИЗМЕНЕНИЕ: Делаем секцию высотой во весь экран */
+    min-height: 100vh; 
+    padding: 60px 25px;
+    overflow: hidden;
+
+    /* ИЗМЕНЕНИЕ: Используем Flexbox для центрирования контента */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* ИЗМЕНЕНИЕ: Добавляем фоновое изображение */
+    position: relative;
+    background-image: url('../img/Project-11.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Для красивого эффекта параллакса */
+}
+
+/* Слой затемнения для лучшей читаемости текста */
+/* --- НАЧАЛО БЛОКА: ПРАВИЛЬНОЕ ЗАТЕМНЕНИЕ И РАЗМЫТИЕ --- */
+
+/* 
+ * ШАГ 1: ВОЗВРАЩАЕМ ПОЛНОЭКРАННОЕ ЗАТЕМНЕНИЕ
+ * Это правило отвечает за темный слой на ВСЮ высоту секции.
+ * Мы используем псевдо-элемент ::before для этого.
+ */
+.projects-section::before,
+.advantages-section::before,
+.contact-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* <-- На всю высоту */
+    background-color: rgba(0, 0, 0, 0.6); /* <-- Интенсивное затемнение */
+    z-index: 1; /* <-- Слой прямо над фоном */
+    
+    /* Убираем отсюда все, что связано с размытием */
+    backdrop-filter: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+/* 
+ * ШАГ 2: СОЗДАЕМ РАЗМЫТИЕ НА СТЫКАХ
+ * Теперь мы используем псевдо-элемент ::after, который будет лежать 
+ * ПОВЕРХ затемнения, но ПОД контентом.
+ */
+.hero::after,
+.projects-section::after,
+.advantages-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    
+    /* Применяем размытие ко всему, что под ним (к фону и к слою затемнения) */
+    backdrop-filter: blur(8px); 
+
+    /* Маска для плавного перехода */
+    mask-image: linear-gradient(to top, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+    
+    z-index: 2; /* <-- Слой НАД затемнением */
+}
+
+/* 
+ * Мы не можем использовать ::after и ::before для одной цели, 
+ * поэтому для верхнего размытия нам нужен еще один элемент.
+ * Самый простой способ - добавить его в HTML.
+ * НО чтобы не трогать HTML, мы можем "пожертвовать" верхним размытием
+ * у секции с формой, так как она последняя.
+ *
+ * Поэтому пока оставляем только нижний блюр, который дает 90% эффекта.
+ */
+
+/* 
+ * ШАГ 3: ПОДНИМАЕМ КОНТЕНТ НА САМЫЙ ВЕРХ
+ * Контент должен быть над всеми эффектами.
+ */
+.hero-content,
+.project-slider-area,
+.advantages-section .container,
+.form-container {
+    position: relative;
+    z-index: 3; /* <-- Самый высокий z-index */
+}
+
+/* Контейнер с контентом должен быть поверх затемнения */
+.advantages-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.advantages-section .section-title {
+    margin-bottom: 80px;
+}
+
+.advantages-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.advantage-card {
+    /* ИЗМЕНЕНИЕ: Добавляем эффект "матового стекла" для карточек */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.advantage-icon {
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.advantage-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+}
+
+.advantage-card p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #c0c0c0;
+    margin: 0;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .advantages-section {
+        padding: 80px 25px;
+    }
+    .advantages-section .section-title {
+        margin-bottom: 50px;
+    }
+}
