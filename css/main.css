@@ -511,6 +511,8 @@ body.menu-is-open .menu-panel {
     margin-top: 40px;
     padding: 0 80px;
     box-sizing: border-box;
+    z-index: 3;
+    position: relative;
 }
 
 .splide__pagination { 
